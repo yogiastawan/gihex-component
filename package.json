@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build-css": "npx tailwindcss -i ./public/style/index_i.scss -o ./public/style/index.css --watch",
-    "compile-scss":"sass ./src/scss/gx_color.scss ./dist/css/gx_color.css",
+    "compile-scss": "sass ./src/scss/gx_color.scss ./dist/css/gx_color.css",
     "server": "node index.js",
-    "build-js":"tsc",
+    "build-js": "tsc",
     "compile-rust": "node ./utilities/to_rust.js",
-    "build":" npm run build-js && npm run compile-rust"
+    "build": " npm run build-js && npm run compile-rust"
   },
   "keywords": [
     "html",

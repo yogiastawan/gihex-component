@@ -8,8 +8,8 @@ module.exports = {
       md: '768px',
       lg: '976px',
       xl: '1440px',
-      fine:{'raw':'(pointer:fine)'}, //for mouse pointer
-      coarse:{'raw':'(pointer:coarse)'} //for mouse pointer
+      fine: { 'raw': '(pointer:fine)' }, //for mouse pointer
+      coarse: { 'raw': '(pointer:coarse)' } //for mouse pointer
     },
     extend: {},
   },

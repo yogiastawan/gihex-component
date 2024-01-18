@@ -140,14 +140,15 @@ function createAttr(posAttr, offset, v, attr) {
             v[i].is_loaded = true;
         }
     }
-    let str = attr[posAttr].value;
+    let atr = attr[posAttr];
+    let str = atr.value;
     let s = '{format!("';
     let of = 0;
     let val = [];
     for (let i = 0; i < as_var.length; i++) {
         val[i] = 'pr.' + as_var[i].name + '.clone()';
         let x = '{}';
-        str = replaceRange(str, x, as_var[i].start - attr[posAttr].value_start + of, as_var[i].end - attr[posAttr].value_start + of);
+        str = replaceRange(str, x, as_var[i].start - atr.value_start + of, as_var[i].end - atr.value_start + of);
         of = of + x.length + (as_var[i].end - as_var[i].start) - 1;
     }
     s = s + str + '",' + val.join() + ')}';
