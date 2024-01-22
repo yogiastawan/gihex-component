@@ -1,0 +1,177 @@
+@import "../utils/var";
+@import "../utils/function";
+
+.contributor-card {
+    display: flex;
+    align-items: center;
+    border-radius: $corner-md;
+    overflow: hidden;
+    min-width: 210px;
+    min-height: 88px;
+    position: relative;
+    background-color: #{$color-surface-container-low};
+    // box-shadow: 0px 0px #{$elevation-1} #{$color-shadow};
+    transition: all;
+    @include vendor-prefix(transition-duration, #{$duration-normal});
+
+    @include create-shadow(1, $color-shadow);
+
+    > .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: all;
+        @include vendor-prefix(transition-duration, #{$duration-normal});
+    }
+
+    > .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+
+        text-decoration: none;
+
+        > .photo {
+            transition: all;
+            @include vendor-prefix(transition-duration, #{$duration-normal});
+
+            @include on-pointer(fine) {
+                position: absolute;
+                margin-top: -1.75rem;
+                margin-left: -1.75rem;
+                left: 50%;
+                top: 50%;
+            }
+
+            > .image-container {
+                display: flex;
+                align-items: center;
+                padding: 0.25rem;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                transition: all;
+                @include vendor-prefix(transition-duration, #{$duration-normal});
+
+                > .background-image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    background-color: #{$color-primary};
+                    border-radius: #{$corner-full};
+                    transition: all;
+                    @include vendor-prefix(transition-duration, #{$duration-normal});
+                }
+
+                @include media-hover() {
+                    &:hover {
+                        > .background-image {
+                            transform: rotate(180deg);
+                            background-color: #{$color-secondary};
+                        }
+                    }
+                }
+
+                > img {
+                    height: 3rem;
+                    border-radius: #{$corner-full};
+                    transition: all;
+                    @include vendor-prefix(transition-duration, #{$duration-normal});
+                }
+            }
+        }
+
+        > .text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            white-space: nowrap;
+            @include vendor-prefix(text-wrap, nowrap);
+            margin-top: auto;
+            margin-bottom: auto;
+            transition: all;
+            color: #{$color-on-surface};
+            @include vendor-prefix(transition-duration, #{$duration-normal});
+
+            @include on-pointer(fine) {
+                margin-left: 4rem;
+            }
+
+            > .name {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                transition: all;
+                text-decoration: none;
+                @include vendor-prefix(transition-duration, #{$duration-normal});
+
+                @include create-text(title, large);
+
+                @include on-pointer(fine) {
+                    opacity: 0;
+                    @include vendor-prefix(transform, translateY(10rem));
+                }
+            }
+            > .desc {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                transition: all;
+                @include vendor-prefix(transition-duration, #{$duration-normal});
+
+                @include create-text(body, small);
+
+                @include on-pointer(fine) {
+                    opacity: 0;
+                    @include vendor-prefix(transform, translateY(10rem));
+                }
+            }
+        }
+    }
+
+    @include media-hover() {
+        &:hover {
+            // box-shadow: 0px 0px #{$elevation-2} #{$color-shadow};
+            @include create-shadow(5, $color-shadow);
+            > .layer {
+                background-color: #{$color-on-surface};
+                opacity: 0.08;
+            }
+
+            > .container {
+                > .photo {
+                    margin-left: 0;
+                    left: 1rem;
+                    > .image-container {
+                        > img {
+                            @include vendor-prefix(transform, rotate(6deg));
+                        }
+                    }
+                }
+
+                > .text {
+                    > .name {
+                        opacity: 1;
+                        @include vendor-prefix(transform, translateY(0));
+                    }
+
+                    > .desc {
+                        opacity: 1;
+                        @include vendor-prefix(transform, translateY(0));
+                    }
+                }
+            }
+        }
+    }
+}

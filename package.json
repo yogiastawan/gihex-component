@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build-css": "npx tailwindcss -i ./public/style/index_i.scss -o ./public/style/index.css --watch",
-    "compile-scss": "sass ./src/scss/gx_color.scss ./dist/css/gx_color.css",
+    "compile-scss": "sass --watch ./public/style/test.scss:./public/style/test.css ./src/scss:./dist/css",
     "server": "node index.js",
     "build-js": "tsc",
-    "compile-rust": "node ./utilities/to_rust.js",
+    "convert2-yew": "node ./utilities/to_rust.js",
     "build": " npm run build-js && npm run compile-rust"
   },
   "keywords": [

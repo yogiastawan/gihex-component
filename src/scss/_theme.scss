@@ -1,0 +1,24 @@
+@import "utils/init";
+@import "utils/internal/corner";
+@import "utils/internal/elevation";
+@import "utils/internal/duration";
+@import "utils/internal/typography";
+
+@import "utils/var";
+
+@import "utils/function";
+
+:root {
+    @include init();
+    // corner radius
+    @include create-var(corner, $corners);
+    // elevation
+    @include create-var(elevation, $elevations);
+    //duration
+    @include create-var(duration, $durations);
+    @include create-var(font-weight, $font-weight);
+    @include create-var(font-weight-prominent, $font-weight-prominent);
+    @include create-var(font-size, $font-size);
+    @include create-var(font-tracking, $font-tracking);
+    @include create-var(line-height, $line-height);
+}

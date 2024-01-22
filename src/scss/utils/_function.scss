@@ -1,0 +1,116 @@
+@use "sass:math";
+@use "sass:map";
+
+@import "internal/screen";
+@import "internal/pointer";
+
+@mixin vendor-prefix($property, $value) {
+    @each $vendor in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+        #{$vendor}#{$property}: #{$value};
+    }
+}
+
+@mixin on-width-min($value) {
+    @media (min-width: map.get($screens,$value)) {
+        @content;
+    }
+}
+
+@mixin on-width-max($value) {
+    @media (max-width: map.get($screens,$value)) {
+        @content;
+    }
+}
+
+@mixin on-height-min($value) {
+    @media (min-height: map.get($screens,$value)) {
+        @content;
+    }
+}
+
+@mixin on-height-max($value) {
+    @media (max-height: map.get($screens,$value)) {
+        @content;
+    }
+}
+
+@mixin on-pointer($value) {
+    @media (pointer: map.get($pointers,$value)) {
+        @content;
+    }
+}
+
+@mixin media-hover() {
+    @media (hover: hover) and (pointer: fine) {
+        @content;
+    }
+}
+
+@mixin create-var($name, $list) {
+    @each $id, $val in $list {
+        --#{$name}-#{$id}: #{$val};
+    }
+}
+
+@mixin create-text($kind, $size) {
+    text-decoration: none;
+    font-weight: var(--font-weight-#{$kind}-#{$size});
+    font-size: var(--font-size-#{$kind}-#{$size});
+    letter-spacing: var(--font-tracking-#{$kind}-#{$size});
+    line-height: var(--line-height-#{$kind}-#{$size});
+}
+
+@mixin create-shadow($level, $color) {
+    &::before {
+        $level1-y: clamp(0, $level, 1);
+
+        $level4-y: clamp(0, $level - 3, 1);
+
+        $level5-y: calc(2 * clamp(0, $level - 4, 1));
+
+        $y: calc(1px * ($level1-y + $level4-y + $level5-y));
+
+        $level1-blur: calc(2 * clamp(0, $level, 1));
+
+        $level3-blur: clamp(0, $level - 2, 1);
+
+        $level5-blur: clamp(0, $level - 4, 1);
+
+        $blur: calc(1px * ($level1-blur + $level3-blur + $level5-blur));
+
+        content: "";
+        box-shadow: 0px $y $blur 0px $color;
+        opacity: 0.3;
+        transition-property: box-shadow, opacity;
+        inset: 0;
+        position: absolute;
+    }
+
+    &::after {
+        $level1-y: clamp(0, $level, 1);
+        $level2-y: clamp(0, $level - 1, 1);
+
+        $level3-5-y: calc(2 * clamp(0, $level - 2, 3));
+
+        $y: calc(1px * ($level1-y + $level2-y + $level3-5-y));
+
+        $level1-2-blur: calc(3 * clamp(0, $level, 2));
+
+        $level3-5-blur: calc(2 * clamp(0, $level - 2, 3));
+
+        $blur: calc(1px * ($level1-2-blur + $level3-5-blur));
+
+        $level1-4-spread: clamp(0, $level, 4);
+        $level5-spread: calc(2 * clamp(0, $level - 4, 1));
+
+        $spread: calc(1px * ($level1-4-spread + $level5-spread));
+
+        //set property
+        content: "";
+        box-shadow: 0px $y $blur $spread $color;
+        opacity: 0.15;
+        transition-property: box-shadow, opacity;
+        inset: 0;
+        position: absolute;
+    }
+}

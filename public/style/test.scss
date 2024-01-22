@@ -1,0 +1,19 @@
+@import "../css/light.css";
+@import "../css/dark.css";
+@import "../css/light-mc.css";
+@import "../css/dark-mc.css";
+@import "../css/light-hc.css";
+@import "../css/dark-hc.css";
+
+@import "../../src/scss/theme";
+
+body {
+    padding: 1rem;
+    background-color: $color-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@import "../../src//scss/components/contributor_card";

@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="/style/index.css">
+    <!-- <link type="text/css" rel="stylesheet" href="/style/index.css"> -->
+    <!-- <link href='css/light.css' rel='stylesheet'> -->
+    <link type="text/css" rel="stylesheet" href="/style/test.css">
+
     <title>Testing component</title>
 </head>
 
-<body class="p-4 bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-    <%-include('contributor-card',{img:" /img/prf.png", name:"Yogi Astawan",
-        githubLink:'https://github.com/yogiastawan', job:"Maintenance"})-%>
+<body class="light">
+    <%-include('side-bar') -%>
+
+        <%-include('contributor-card',{img:" /img/prf.png", name:"Yogi Astawan",
+            githubLink:'https://github.com/yogiastawan', job:"Maintenance"})-%>
+
 </body>
 
 </html>
