@@ -79,11 +79,14 @@
         $blur: calc(1px * ($level1-blur + $level3-blur + $level5-blur));
 
         content: "";
-        box-shadow: 0px $y $blur 0px $color;
+        $box-shadow: 0px $y $blur 0px $color;
+        @include vendor-prefix(box-shadow, $box-shadow);
         opacity: 0.3;
         transition-property: box-shadow, opacity;
         inset: 0;
         position: absolute;
+        border-radius: inherit;
+        z-index: -1;
     }
 
     &::after {
@@ -107,10 +110,13 @@
 
         //set property
         content: "";
-        box-shadow: 0px $y $blur $spread $color;
+        $box-shadow: 0px $y $blur $spread $color;
+        @include vendor-prefix(box-shadow, $box-shadow);
         opacity: 0.15;
         transition-property: box-shadow, opacity;
         inset: 0;
         position: absolute;
+        border-radius: inherit;
+        z-index: -1;
     }
 }

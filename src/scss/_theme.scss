@@ -9,6 +9,7 @@
 @import "utils/function";
 
 :root {
+    // init
     @include init();
     // corner radius
     @include create-var(corner, $corners);
@@ -16,6 +17,7 @@
     @include create-var(elevation, $elevations);
     //duration
     @include create-var(duration, $durations);
+    // typography
     @include create-var(font-weight, $font-weight);
     @include create-var(font-weight-prominent, $font-weight-prominent);
     @include create-var(font-size, $font-size);

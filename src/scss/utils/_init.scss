@@ -1,27 +1,31 @@
 @mixin init() {
-    text-decoration: none !important;
-    *,
-    ::before,
-    ::after {
-        box-sizing: border-box;
-        /* 1 */
-        border-width: 0;
-        margin: 0;
-        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-            "Noto Color Emoji";
-    }
+    @at-root {
+        // t
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+            /* 1 */
+            border-width: 0;
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+                "Noto Color Emoji";
+            text-decoration: none !important;
+        }
 
-    code,
-    kbd,
-    samp,
-    pre {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        /* 1 */
-        font-feature-settings: normal;
-        /* 2 */
-        font-variation-settings: normal;
-        /* 3 */
-        font-size: 1em;
-        /* 4 */
+        code,
+        kbd,
+        samp,
+        pre {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+                monospace;
+            /* 1 */
+            font-feature-settings: normal;
+            /* 2 */
+            font-variation-settings: normal;
+            /* 3 */
+            font-size: 1em;
+            /* 4 */
+        }
     }
 }

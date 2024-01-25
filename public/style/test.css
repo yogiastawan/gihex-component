@@ -5,7 +5,6 @@
 @import "../css/light-hc.css";
 @import "../css/dark-hc.css";
 :root {
-  text-decoration: none !important;
   --corner-none: 0rem;
   --corner-xs: 0.25rem;
   --corner-sm: 0.5rem;
@@ -87,19 +86,21 @@
   --line-height-label-medium: 16px;
   --line-height-label-small: 16px;
 }
-:root *,
-:root ::before,
-:root ::after {
+*,
+::before,
+::after {
   box-sizing: border-box;
   /* 1 */
   border-width: 0;
   margin: 0;
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-decoration: none !important;
 }
-:root code,
-:root kbd,
-:root samp,
-:root pre {
+
+code,
+kbd,
+samp,
+pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
   font-feature-settings: normal;
@@ -123,9 +124,7 @@ body {
   display: flex;
   align-items: center;
   border-radius: var(--corner-md);
-  overflow: hidden;
   min-width: 210px;
-  min-height: 88px;
   position: relative;
   background-color: var(--md-sys-color-surface-container-low);
   transition: all;
@@ -137,19 +136,31 @@ body {
 }
 .contributor-card::before {
   content: "";
+  -webkit-box-shadow: 0px 1px 2px 0px var(--md-sys-color-shadow);
+  -moz-box-shadow: 0px 1px 2px 0px var(--md-sys-color-shadow);
+  -ms-box-shadow: 0px 1px 2px 0px var(--md-sys-color-shadow);
+  -o-box-shadow: 0px 1px 2px 0px var(--md-sys-color-shadow);
   box-shadow: 0px 1px 2px 0px var(--md-sys-color-shadow);
   opacity: 0.3;
   transition-property: box-shadow, opacity;
   inset: 0;
   position: absolute;
+  border-radius: inherit;
+  z-index: -1;
 }
 .contributor-card::after {
   content: "";
+  -webkit-box-shadow: 0px 1px 3px 1px var(--md-sys-color-shadow);
+  -moz-box-shadow: 0px 1px 3px 1px var(--md-sys-color-shadow);
+  -ms-box-shadow: 0px 1px 3px 1px var(--md-sys-color-shadow);
+  -o-box-shadow: 0px 1px 3px 1px var(--md-sys-color-shadow);
   box-shadow: 0px 1px 3px 1px var(--md-sys-color-shadow);
   opacity: 0.15;
   transition-property: box-shadow, opacity;
   inset: 0;
   position: absolute;
+  border-radius: inherit;
+  z-index: -1;
 }
 .contributor-card > .layer {
   position: absolute;
@@ -159,6 +170,7 @@ body {
   bottom: 0;
   opacity: 0;
   transition: all;
+  border-radius: inherit;
   -webkit-transition-duration: var(--duration-normal);
   -moz-transition-duration: var(--duration-normal);
   -ms-transition-duration: var(--duration-normal);
@@ -174,6 +186,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  overflow: hidden;
   text-decoration: none;
 }
 .contributor-card > .container > .photo {
@@ -231,6 +244,7 @@ body {
 .contributor-card > .container > .photo > .image-container > img {
   height: 3rem;
   border-radius: var(--corner-full);
+  z-index: 2;
   transition: all;
   -webkit-transition-duration: var(--duration-normal);
   -moz-transition-duration: var(--duration-normal);
@@ -320,19 +334,31 @@ body {
 @media (hover: hover) and (pointer: fine) {
   .contributor-card:hover::before {
     content: "";
+    -webkit-box-shadow: 0px 4px 4px 0px var(--md-sys-color-shadow);
+    -moz-box-shadow: 0px 4px 4px 0px var(--md-sys-color-shadow);
+    -ms-box-shadow: 0px 4px 4px 0px var(--md-sys-color-shadow);
+    -o-box-shadow: 0px 4px 4px 0px var(--md-sys-color-shadow);
     box-shadow: 0px 4px 4px 0px var(--md-sys-color-shadow);
     opacity: 0.3;
     transition-property: box-shadow, opacity;
     inset: 0;
     position: absolute;
+    border-radius: inherit;
+    z-index: -1;
   }
   .contributor-card:hover::after {
     content: "";
+    -webkit-box-shadow: 0px 8px 12px 6px var(--md-sys-color-shadow);
+    -moz-box-shadow: 0px 8px 12px 6px var(--md-sys-color-shadow);
+    -ms-box-shadow: 0px 8px 12px 6px var(--md-sys-color-shadow);
+    -o-box-shadow: 0px 8px 12px 6px var(--md-sys-color-shadow);
     box-shadow: 0px 8px 12px 6px var(--md-sys-color-shadow);
     opacity: 0.15;
     transition-property: box-shadow, opacity;
     inset: 0;
     position: absolute;
+    border-radius: inherit;
+    z-index: -1;
   }
   .contributor-card:hover > .layer {
     background-color: var(--md-sys-color-on-surface);

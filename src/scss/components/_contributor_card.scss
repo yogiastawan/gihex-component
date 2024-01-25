@@ -5,9 +5,9 @@
     display: flex;
     align-items: center;
     border-radius: $corner-md;
-    overflow: hidden;
+    // overflow: hidden;
     min-width: 210px;
-    min-height: 88px;
+    // min-height: 88px;
     position: relative;
     background-color: #{$color-surface-container-low};
     // box-shadow: 0px 0px #{$elevation-1} #{$color-shadow};
@@ -24,6 +24,7 @@
         bottom: 0;
         opacity: 0;
         transition: all;
+        border-radius: inherit;
         @include vendor-prefix(transition-duration, #{$duration-normal});
     }
 
@@ -36,7 +37,7 @@
         margin-left: auto;
         margin-right: auto;
         position: relative;
-
+        overflow: hidden;
         text-decoration: none;
 
         > .photo {
@@ -85,6 +86,7 @@
                 > img {
                     height: 3rem;
                     border-radius: #{$corner-full};
+                    z-index: 2;
                     transition: all;
                     @include vendor-prefix(transition-duration, #{$duration-normal});
                 }
@@ -140,6 +142,7 @@
         }
     }
 
+    // on card hover
     @include media-hover() {
         &:hover {
             // box-shadow: 0px 0px #{$elevation-2} #{$color-shadow};
