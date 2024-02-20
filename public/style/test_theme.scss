@@ -1,0 +1,21 @@
+@use "../../src/scss/utils/function";
+
+// @import "../md_css/light";
+// @import "../md_css/dark";
+// @import "../md_css/light-mc";
+// @import "../md_css/dark-mc";
+// @import "../md_css/light-hc";
+// @import "../md_css/dark-hc";
+
+@import "../md2_css/light";
+@import "../md2_css/dark";
+@import "../md2_css/light-mc";
+@import "../md2_css/dark-mc";
+@import "../md2_css/light-hc";
+@import "../md2_css/dark-hc";
+
+:root {
+    @include function.create-theme-color_default($light);
+    @include function.create-theme-color-dark($dark, $dark-medium-contrast, $dark-medium-contrast);
+    @include function.create-theme-color-light($light, $light, $light-high-contrast);
+}

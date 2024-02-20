@@ -120,3 +120,61 @@
         z-index: -1;
     }
 }
+
+@mixin create-theme-color_default($colors) {
+    @at-root {
+        :root {
+            @each $p, $v in $colors {
+                #{$p}: #{$v};
+            }
+        }
+    }
+}
+
+@mixin create-theme-color-light($colors, $mc, $hc) {
+    @at-root {
+        @media (prefers-color-scheme: light) {
+            :root {
+                @each $p, $v in $colors {
+                    #{$p}: #{$v};
+                }
+
+                .mc {
+                    @each $p, $v in $hc {
+                        #{$p}: #{$v};
+                    }
+                }
+
+                .hc {
+                    @each $p, $v in $colors {
+                        #{$p}: #{$v};
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin create-theme-color-dark($colors, $mc, $hc) {
+    @at-root {
+        @media (prefers-color-scheme: dark) {
+            :root {
+                @each $p, $v in $colors {
+                    #{$p}: #{$v};
+                }
+
+                .mc {
+                    @each $p, $v in $hc {
+                        #{$p}: #{$v};
+                    }
+                }
+
+                .hc {
+                    @each $p, $v in $colors {
+                        #{$p}: #{$v};
+                    }
+                }
+            }
+        }
+    }
+}

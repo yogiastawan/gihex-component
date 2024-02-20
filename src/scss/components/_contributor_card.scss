@@ -5,12 +5,9 @@
     display: flex;
     align-items: center;
     border-radius: $corner-md;
-    // overflow: hidden;
     min-width: 210px;
-    // min-height: 88px;
     position: relative;
     background-color: #{$color-surface-container-low};
-    // box-shadow: 0px 0px #{$elevation-1} #{$color-shadow};
     transition: all;
     @include vendor-prefix(transition-duration, #{$duration-normal});
 
@@ -68,7 +65,8 @@
                     left: 0;
                     bottom: 0;
                     right: 0;
-                    background-color: #{$color-primary};
+                    // background-color: #{$color-primary};
+                    background-image: linear-gradient(to top right, $color-primary, $color-inverse-primary);
                     border-radius: #{$corner-full};
                     transition: all;
                     @include vendor-prefix(transition-duration, #{$duration-normal});
@@ -78,7 +76,7 @@
                     &:hover {
                         > .background-image {
                             transform: rotate(180deg);
-                            background-color: #{$color-secondary};
+                            // background-color: #{$color-secondary};
                         }
                     }
                 }
@@ -130,6 +128,7 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 transition: all;
+                @include vendor-prefix(transition-delay, $duration-faster);
                 @include vendor-prefix(transition-duration, #{$duration-normal});
 
                 @include create-text(body, small);
@@ -146,7 +145,7 @@
     @include media-hover() {
         &:hover {
             // box-shadow: 0px 0px #{$elevation-2} #{$color-shadow};
-            @include create-shadow(5, $color-shadow);
+            @include create-shadow(2, $color-shadow);
             > .layer {
                 background-color: #{$color-on-surface};
                 opacity: 0.08;
@@ -175,6 +174,24 @@
                     }
                 }
             }
+        }
+    }
+
+    &:disabled {
+        background-color: $color-surface;
+        opacity: 0.38;
+        @include create-shadow(1, $color-shadow);
+        > .layer {
+            opacity: 0;
+        }
+    }
+
+    &:focus {
+        @include create-shadow(1, $color-shadow);
+
+        > .layer {
+            background-color: $color-on-surface;
+            opacity: 0.1;
         }
     }
 }

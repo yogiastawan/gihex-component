@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-css": "npx tailwindcss -i ./public/style/index_i.scss -o ./public/style/index.css --watch",
-    "compile-scss": "sass --watch ./public/style/test.scss:./public/style/test.css ./src/scss:./dist/css",
+    "compile-scss": "sass --watch ./public/style/test.scss:./public/style/test.css ./public/style/test_theme.scss:./public/style/test_theme.css ./src/scss:./dist/css",
     "server": "node index.js",
     "build-js": "tsc",
     "convert2-yew": "node ./utilities/to_rust.js",
