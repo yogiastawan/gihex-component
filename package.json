@@ -4,26 +4,24 @@
   "description": "Web awesome component by Gihex",
   "main": "index.js",
   "scripts": {
-    "build-css": "npx tailwindcss -i ./public/style/index_i.scss -o ./public/style/index.css --watch",
-    "compile-scss": "sass --watch ./public/style/test.scss:./public/style/test.css ./public/style/test_theme.scss:./public/style/test_theme.css ./src/scss:./dist/css",
-    "server": "node index.js",
-    "build-js": "tsc",
-    "convert2-yew": "node ./utilities/to_rust.js",
-    "build": " npm run build-js && npm run compile-rust"
+    "watch-scss": "sass --watch ./tests/public/style/test.scss:./tests/public/style/test.css ./tests/public/style/test_theme.scss:./tests/public/style/test_theme.css",
+    "build-js": "webpack  --config webpack.config.js",
+    "build-js-dev": "webpack  --config webpack.config.dev.js",
+    "compile-scss": "sass ./tests/public/style/test.scss:./tests/public/style/test.css ./tests/public/style/test_theme.scss:./tests/public/style/test_theme.css",
+    "build-test": "npm run compile-scss && npm run build-js-dev"
   },
   "keywords": [
     "html",
-    "css",
-    "tailwindcss"
+    "css"
   ],
   "author": "yogiastawan",
   "license": "ISC",
-  "dependencies": {
-    "ejs": "^3.1.9",
-    "express": "^4.18.2"
-  },
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "typescript": "^5.3.3"
+    "mini-css-extract-plugin": "^2.8.0",
+    "sass-to-string": "^1.6.3",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
   }
 }

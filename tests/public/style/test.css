@@ -1,0 +1,114 @@
+:root {
+  --corner-none: 0rem;
+  --corner-xs: 0.25rem;
+  --corner-sm: 0.5rem;
+  --corner-md: 0.75rem;
+  --corner-lg: 1rem;
+  --corner-xl: 1.75rem;
+  --corner-full: 9999px;
+  --elevation-0: 0rem;
+  --elevation-1: 1px;
+  --elevation-2: 3px;
+  --elevation-3: 6px;
+  --elevation-4: 0.5rem;
+  --elevation-5: 0.75rem;
+  --duration-faster: 100ms;
+  --duration-fast: 300ms;
+  --duration-normal: 500ms;
+  --duration-slow: 750ms;
+  --duration-slower: 1s;
+  --font-weight-display-large: 400;
+  --font-weight-display-medium: 400;
+  --font-weight-display-small: 400;
+  --font-weight-headline-large: 400;
+  --font-weight-headline-medium: 400;
+  --font-weight-headline-small: 400;
+  --font-weight-title-large: 400;
+  --font-weight-title-medium: 500;
+  --font-weight-title-small: 500;
+  --font-weight-body-large: 400;
+  --font-weight-body-medium: 400;
+  --font-weight-body-small: 400;
+  --font-weight-label-large: 500;
+  --font-weight-label-medium: 500;
+  --font-weight-label-small: 500;
+  --font-weight-prominent-label-large: 700;
+  --font-weight-prominent-label-medium: 700;
+  --font-size-display-large: 57px;
+  --font-size-display-medium: 45px;
+  --font-size-display-small: 36px;
+  --font-size-headline-large: 32px;
+  --font-size-headline-medium: 28px;
+  --font-size-headline-small: 24px;
+  --font-size-title-large: 22px;
+  --font-size-title-medium: 16px;
+  --font-size-title-small: 14px;
+  --font-size-body-large: 16px;
+  --font-size-body-medium: 14px;
+  --font-size-body-small: 12px;
+  --font-size-label-large: 14px;
+  --font-size-label-medium: 12px;
+  --font-size-label-small: 11px;
+  --font-tracking-display-large: -0.25px;
+  --font-tracking-display-medium: 0;
+  --font-tracking-display-small: 0;
+  --font-tracking-headline-large: 0;
+  --font-tracking-headline-medium: 0;
+  --font-tracking-headline-small: 0;
+  --font-tracking-title-large: 0;
+  --font-tracking-title-medium: 0.15px;
+  --font-tracking-title-small: 0.1px;
+  --font-tracking-body-large: 0.5px;
+  --font-tracking-body-medium: 0.25px;
+  --font-tracking-body-small: 0.4px;
+  --font-tracking-label-large: 0.1px;
+  --font-tracking-label-medium: 0.5px;
+  --font-tracking-label-small: 0.5px;
+  --line-height-display-large: 64px;
+  --line-height-display-medium: 52px;
+  --line-height-display-small: 44px;
+  --line-height-headline-large: 40px;
+  --line-height-headline-medium: 36px;
+  --line-height-headline-small: 32px;
+  --line-height-title-large: 28px;
+  --line-height-title-medium: 24px;
+  --line-height-title-small: 20px;
+  --line-height-body-large: 24px;
+  --line-height-body-medium: 20px;
+  --line-height-body-small: 16px;
+  --line-height-label-large: 20px;
+  --line-height-label-medium: 16px;
+  --line-height-label-small: 16px;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none !important;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: "Roboto Mono", monospace;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  padding: 1rem;
+  background-color: var(--md-sys-color-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=test.css.map */

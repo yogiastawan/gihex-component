@@ -1,5 +1,9 @@
 
-@import "../../src/scss/theme";
+@import "../../../src/scss/theme";
+
+*{
+    margin: 0;
+}
 
 body {
     padding: 1rem;
@@ -10,4 +14,3 @@ body {
     justify-content: center;
 }
 
-@import "../../src//scss/components/contributor_card";

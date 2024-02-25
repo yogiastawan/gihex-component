@@ -114,6 +114,7 @@
                 text-overflow: ellipsis;
                 transition: all;
                 text-decoration: none;
+                margin: 0;
                 @include vendor-prefix(transition-duration, #{$duration-normal});
 
                 @include create-text(title, large);
@@ -128,6 +129,7 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 transition: all;
+                margin: 0;
                 @include vendor-prefix(transition-delay, $duration-faster);
                 @include vendor-prefix(transition-duration, #{$duration-normal});
 
