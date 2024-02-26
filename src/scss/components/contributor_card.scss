@@ -13,7 +13,8 @@
 
     @include create-shadow(1, $color-shadow);
 
-    > .layer {
+    //layer
+    > div {
         position: absolute;
         top: 0;
         left: 0;
@@ -25,7 +26,8 @@
         @include vendor-prefix(transition-duration, #{$duration-normal});
     }
 
-    > .container {
+    //container
+    > a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,7 +39,8 @@
         overflow: hidden;
         text-decoration: none;
 
-        > .photo {
+        //photo
+        > div:nth-child(1) {
             transition: all;
             @include vendor-prefix(transition-duration, #{$duration-normal});
 
@@ -49,7 +52,8 @@
                 top: 50%;
             }
 
-            > .image-container {
+            //image-container
+            > div {
                 display: flex;
                 align-items: center;
                 padding: 0.25rem;
@@ -59,7 +63,7 @@
                 transition: all;
                 @include vendor-prefix(transition-duration, #{$duration-normal});
 
-                > .background-image {
+                > div {
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -74,7 +78,7 @@
 
                 @include media-hover() {
                     &:hover {
-                        > .background-image {
+                        > div {
                             transform: rotate(180deg);
                             // background-color: #{$color-secondary};
                         }
@@ -91,7 +95,8 @@
             }
         }
 
-        > .text {
+        //text
+        > div:nth-child(2) {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -108,7 +113,8 @@
                 margin-left: 4rem;
             }
 
-            > .name {
+            //name
+            > p:nth-child(1) {
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -124,7 +130,7 @@
                     @include vendor-prefix(transform, translateY(10rem));
                 }
             }
-            > .desc {
+            > p:nth-child(2) {
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -148,29 +154,29 @@
         &:hover {
             // box-shadow: 0px 0px #{$elevation-2} #{$color-shadow};
             @include create-shadow(2, $color-shadow);
-            > .layer {
+            > div {
                 background-color: #{$color-on-surface};
                 opacity: 0.08;
             }
 
-            > .container {
-                > .photo {
+            > a {
+                > div:nth-child(1) {
                     margin-left: 0;
                     left: 1rem;
-                    > .image-container {
+                    > div {
                         > img {
                             @include vendor-prefix(transform, rotate(6deg));
                         }
                     }
                 }
 
-                > .text {
-                    > .name {
+                > div:nth-child(2) {
+                    > p:nth-child(1) {
                         opacity: 1;
                         @include vendor-prefix(transform, translateY(0));
                     }
 
-                    > .desc {
+                    > p:nth-child(2) {
                         opacity: 1;
                         @include vendor-prefix(transform, translateY(0));
                     }
@@ -183,7 +189,7 @@
         background-color: $color-surface;
         opacity: 0.38;
         @include create-shadow(1, $color-shadow);
-        > .layer {
+        > div {
             opacity: 0;
         }
     }
@@ -191,7 +197,7 @@
     &:focus {
         @include create-shadow(1, $color-shadow);
 
-        > .layer {
+        > div {
             background-color: $color-on-surface;
             opacity: 0.1;
         }

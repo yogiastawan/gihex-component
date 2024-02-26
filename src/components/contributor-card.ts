@@ -1,7 +1,15 @@
 import contributorCard from '../scss/components/contributor_card.scss'
 
+/**
+ * Attributes list:
+ * - `link` : Url of user profile or github link
+ * - `img` : Source image of profile picture
+ * - `name` : Name
+ * - `desc` : Description
+ */
 export class ContributorCard extends HTMLElement {
-    static observedAttributes = ["link", "img", "name", "desc"];
+    // uncomment to set attributeChangedCallback of attribute
+    // static observedAttributes = ["link", "img", "name", "desc"];
 
     constructor() {
         super()
@@ -23,23 +31,23 @@ export class ContributorCard extends HTMLElement {
 
         //layer
         const layer = document.createElement("div");
-        layer.setAttribute("class", "layer");
+        // layer.setAttribute("class", "layer");
 
         //container
         const container = document.createElement("a");
 
         container.setAttribute("href", link ? link : "");
-        container.setAttribute("class", "container");
+        // container.setAttribute("class", "container");
 
         //create photo
         const photo = document.createElement("div");
-        photo.setAttribute("class", "photo");
+        // photo.setAttribute("class", "photo");
 
         const image_container = document.createElement("div");
-        image_container.setAttribute("class", "image-container");
+        // image_container.setAttribute("class", "image-container");
 
         const background_image = document.createElement("div");
-        background_image.setAttribute("class", "background-image");
+        // background_image.setAttribute("class", "background-image");
 
         const img = document.createElement("img");
         img.setAttribute("src", img_src ? img_src : "");
@@ -53,14 +61,14 @@ export class ContributorCard extends HTMLElement {
 
         // create text
         const text = document.createElement("div");
-        text.setAttribute("class", "text");
+        // text.setAttribute("class", "text");
 
         const p_name = document.createElement("p");
-        p_name.setAttribute("class", "name");
+        // p_name.setAttribute("class", "name");
         p_name.textContent = name;
 
         const p_desc = document.createElement("p");
-        p_desc.setAttribute("class", "desc");
+        // p_desc.setAttribute("class", "desc");
         p_desc.textContent = desc;
 
         text.appendChild(p_name);
