@@ -32,7 +32,7 @@ module.exports = {
     entry: {"contributor-card": "./src/components/contributor-card.ts"},
     output: {
         filename: "[name].js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist/components")
     },
     module: {
         rules: [
