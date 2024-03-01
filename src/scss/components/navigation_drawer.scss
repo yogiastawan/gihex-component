@@ -1,0 +1,50 @@
+@import "../utils/var";
+@import "../utils/function";
+
+:host {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+
+    //default show standard
+    > div:nth-child(2) {
+        background-color: $color-surface;
+        border-top-right-radius: $corner-lg;
+        border-bottom-right-radius: $corner-lg;
+        width: 360px;
+        height: 100%;
+    }
+
+    > div:nth-child(3) {
+        display: none;
+    }
+}
+
+// hide
+:host([show="none"]) {
+    display: none;
+}
+
+//show modal
+:host([show="modal"]) {
+    width: 100%;
+    z-index: 9999;
+    > div:nth-child(2) {
+        background-color: $color-surface-container-low;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    > div:nth-child(3) {
+        display: block;
+        background-color: $color-scrim;
+        opacity: 0.4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+}

@@ -29,7 +29,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: "development",
-    entry: {"contributor-card": "./src/components/contributor-card.ts"},
+    entry: {
+        "contributor-card": "./src/components/contributor-card.ts",
+        "navigation-drawer": "./src/components/navigation-drawer.ts"
+    },
     output: {
         filename: "[name].js",
         path: path.resolve(__dirname, "tests/public/components")
