@@ -31,4 +31,4 @@ export class SideNavigation extends HTMLElement {
 
 }
 
-customElements.define("side-navigation", SideNavigation);
+customElements.define("navigation-drawer", SideNavigation);
