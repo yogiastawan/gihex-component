@@ -1,8 +1,8 @@
 //media screen
 $screens: (
-    xs: 320px,
-    sm: 480px,
-    md: 768px,
-    lg: 976px,
-    xl: 1440px
+    compact: 0px,
+    medium: 600px,
+    expanded: 840px,
+    large: 1200px,
+    extra-large: 1600px
 );
