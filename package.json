@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "watch-scss": "sass --watch ./tests/public/style/test.scss:./tests/public/style/test.css ./tests/public/style/test_theme.scss:./tests/public/style/test_theme.css",
-    "build-js": "webpack  --config webpack.config.js",
-    "build-js-dev": "webpack  --config webpack.config.dev.js",
+    "build-js": "webpack  --mode production --output-path ./dist/components",
+    "build-js-dev": "webpack  --mode development --output-path ./tests/public/components",
     "compile-scss": "sass ./tests/public/style/test.scss:./tests/public/style/test.css ./tests/public/style/test_theme.scss:./tests/public/style/test_theme.css",
     "copy-release": "cpy . --cwd=src/scss '!./components/*' ../../../../dist/scss",
     "build-test": "npm run compile-scss && npm run build-js-dev",
-    "zip":"bestzip gihex-comp.zip dist/*",
+    "zip": "bestzip gihex-comp.zip dist/*",
     "build-release": "npm run build-js && npm run copy-release && npm run zip"
   },
   "keywords": [
@@ -25,6 +25,7 @@
     "cpy-cli": "^5.0.0",
     "mini-css-extract-plugin": "^2.8.0",
     "sass-to-string": "^1.6.3",
+    "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
