@@ -28,14 +28,22 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // };
 
 module.exports = {
-    mode: "production",
-    entry: {"contributor-card": "./src/components/contributor-card.ts"},
+    entry: {
+        "contributor-card": "./src/components/contributor-card.ts",
+        "navigation-drawer": "./src/components/navigation-drawer.ts",
+        "menu-item": "./src/components/menu-item.ts",
+    },
     output: {
         filename: "[name].js",
-        path: path.resolve(__dirname, "dist/components")
+        // path: path.resolve(__dirname, "dist/components")
     },
     module: {
         rules: [
+            {
+                test:/\.ts$/,
+                exclude:/node_modules/,
+                use:"ts-loader"
+            },
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
