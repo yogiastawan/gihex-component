@@ -4,15 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./public/components/contributor-card.js"></script>
-    <script src="./public/components/navigation-drawer.js"></script>
+    <title>Gihex Components Test</title>
     <link rel="stylesheet" href="./public/style/test_theme.css">
     <link rel="stylesheet" href="./public/style/test.css">
+    <script src="./public/components/contributor-card.js"></script>
+    <script src="./public/components/navigation-drawer.js"></script>
+    <script src="./public/components/menu-item.js"></script>
+
 </head>
 
 <body>
-    <navigation-drawer></navigation-drawer>
+    <navigation-drawer show="modal">
+        <menu-item label="Home" badge-label="999" mode="drawer" scope="mymenu" no-link><span
+                class="material-icons-outlined">
+                dashboard
+            </span></menu-item>
+        <menu-item label="Setting" mode="rail" scope="mymenu" no-link><span class="material-icons-outlined">
+                settings
+            </span></menu-item>
+        <menu-item label="About" badge-label="*" scope="mymenu" no-link><span class="material-icons-outlined">
+                info
+            </span></menu-item>
+        <menu-item label="Setting" mode="rail" state="active" scope="mymenu" no-link><span
+                class="material-icons-outlined">
+                settings
+            </span></menu-item>
+    </navigation-drawer>
     <contributor-card link="/" img="./public/img/prf.png" name="Yogi Astawan" desc="Creator"></contributor-card>
 </body>
 

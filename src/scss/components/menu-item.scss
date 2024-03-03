@@ -1,0 +1,205 @@
+@import "../utils/var";
+@import "../utils/function";
+
+/*
+host:
+    > div[active_indicator]
+    > div[state_layer]
+    > a[container]:
+        >slot[slot_icon]
+        >p[label]
+        >p[bagde_label]
+*/
+
+* {
+    box-sizing: border-box;
+    transition-property: color, background-color, opacity;
+    @include vendor-prefix(transition-duration, $duration-normal);
+    @include vendor-prefix(transition-timing-function, linear);
+    margin: 0;
+}
+
+// mode drawer
+
+:host,
+:host([mode="drawer"]) {
+    display: inline-block;
+    height: 56px;
+    width: 100%;
+    position: relative;
+
+    > div {
+        position: absolute;
+        opacity: 0;
+        border-radius: $corner-full;
+        height: inherit;
+        left: 12px;
+        width: 336px;
+        top: 0;
+        z-index: -1;
+    }
+
+    > a {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 12px;
+        height: inherit;
+        width: 100%;
+        padding-left: 28px;
+        padding-right: 28px;
+        text-decoration: none;
+        color: $color-on-surface-variant;
+
+        > * {
+            flex-grow: 0;
+        }
+
+        > ::slotted(*) {
+            flex-basis: 24px;
+            width: 24px;
+            height: 24px;
+        }
+
+        > p:nth-child(2) {
+            flex-grow: 2;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            @include create-text(label, large);
+        }
+
+        > p:nth-child(3) {
+            white-space: nowrap;
+            @include create-text(label, large);
+        }
+    }
+}
+
+:host([state="active"]),
+:host([mode="drawer"][state="active"]) {
+    > div:nth-child(2) {
+        opacity: 1;
+        background-color: $color-secondary-container;
+    }
+    > a {
+        color: $color-on-secondary-container;
+        > p:nth-child(2) {
+            @include create-text-prominent(label, large);
+        }
+        > p:nth-child(3) {
+            color: $color-on-surface-variant;
+        }
+    }
+}
+
+:host([state="active"]:hover),
+:host([mode="drawer"][state="active"]:hover) {
+    > div:nth-child(3) {
+        background-color: $color-on-secondary-container;
+        opacity: 0.08;
+    }
+}
+
+:host(:hover),
+:host([mode="drawer"]:hover) {
+    > div:nth-child(3) {
+        background-color: $color-on-surface;
+        opacity: 0.08;
+    }
+
+    > a {
+        color: $color-on-surface;
+        > p:nth-child(3) {
+            color: $color-on-surface-variant;
+        }
+    }
+}
+
+//mode rail
+
+/*
+host:
+    > div[active_indicator]
+    > div[state_layer]
+    > a[container]:
+        >slot[slot_icon]
+        >p[label]
+        >p[bagde_label]
+*/
+
+:host([mode="rail"]) {
+    display: inline-block;
+    width: 80px;
+    height: auto;
+    position: relative;
+
+    > div {
+        opacity: 0;
+        height: 32px;
+        width: 56px;
+        left: 12px;
+        top: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+    > a {
+        text-decoration: none;
+        color: $color-on-surface-variant;
+        padding-left: 12px;
+        padding-right: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+
+        > ::slotted(*) {
+            margin-top: 4px !important;
+            margin-bottom: 4px !important;
+            flex-grow: 0;
+            flex-basis: 24px;
+            width: 24px;
+            height: 24px;
+        }
+
+        > p:nth-child(2) {
+            margin-top: 4px;
+            flex-grow: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            @include create-text(label, medium);
+        }
+    }
+}
+
+:host([mode="rail"][state="active"]) {
+    > div:nth-child(2) {
+        opacity: 1;
+        color: $color-secondary-container;
+    }
+    > a {
+        color: $color-on-surface;
+
+        > ::slotted(*) {
+            color: $color-on-secondary-container;
+        }
+        > p:nth-child(2) {
+            @include create-text-prominent(label, medium);
+        }
+    }
+}
+
+:host([mode="rail"]:hover),
+:host([mode="rail"][state="active"]:hover) {
+    > div:nth-last-child(3) {
+        color: $color-on-surface;
+        opacity: 0.08;
+    }
+    > a {
+        color: $color-on-surface;
+        > ::slotted(*) {
+            color: $color-on-surface;
+        }
+    }
+}
