@@ -1,11 +1,18 @@
 @import "../utils/var";
 @import "../utils/function";
 
-:host {
+* {
+    box-sizing: border-box;
+}
+
+:host,
+:host([show="standard"]) {
     position: fixed;
     left: 0;
     top: 0;
     height: 100%;
+    transition: all;
+    @include vendor-prefix(transition-duration, $duration-normal);
 
     //default show standard
     > div:nth-child(2) {
@@ -22,8 +29,12 @@
 }
 
 // hide
-:host([show="none"]) {
-    display: none;
+:host([show="no"]) {
+    // display: none;
+    left: -360px;
+    > div:nth-child(3) {
+        display: none;
+    }
 }
 
 //show modal
@@ -36,6 +47,7 @@
         top: 0;
         left: 0;
         z-index: 1;
+        @include create-shadow(1, $color-shadow);
     }
     > div:nth-child(3) {
         display: block;

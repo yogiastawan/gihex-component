@@ -1,14 +1,11 @@
 import sideNavigation from '../scss/components/navigation_drawer.scss'
 
-const template = document.createElement('template');
-template.innerHTML = `
-<div></div>
-<div></div>
-`;
+/**
+ * Attributes:
+ * - `show` :`standard` as deafult, `modal`, or `no` to hide
+ */
 
 export class SideNavigation extends HTMLElement {
-
-    static observedAttributes = ["show"];
 
     constructor() {
         super();
@@ -20,8 +17,15 @@ export class SideNavigation extends HTMLElement {
         const style = document.createElement("style");
         style.textContent = sideNavigation;
 
+        const menu_container = document.createElement("div");
+        const menu_slot = document.createElement("slot");
+        menu_container.appendChild(menu_slot);
+        const scrim = document.createElement("div");
+
         shadow.appendChild(style);
-        shadow.appendChild(template.content.cloneNode(true));
+        shadow.appendChild(menu_container);
+        shadow.appendChild(scrim);
+        // shadow.appendChild(template.content.cloneNode(true));
     }
 
     // attributeChangedCallback(name: any, oldValue: any, newValue: any) {

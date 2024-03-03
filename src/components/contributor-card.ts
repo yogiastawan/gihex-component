@@ -34,9 +34,9 @@ export class ContributorCard extends HTMLElement {
         // layer.setAttribute("class", "layer");
 
         //container
-        const container = document.createElement("a");
+        const container = document.createElement("a") as HTMLAnchorElement;
+        container.href = link ? link : "/";
 
-        container.setAttribute("href", link ? link : "");
         // container.setAttribute("class", "container");
 
         //create photo
@@ -49,9 +49,9 @@ export class ContributorCard extends HTMLElement {
         const background_image = document.createElement("div");
         // background_image.setAttribute("class", "background-image");
 
-        const img = document.createElement("img");
-        img.setAttribute("src", img_src ? img_src : "");
-        img.setAttribute("alt", name ? name : "");
+        const img = document.createElement("img") as HTMLImageElement;
+        img.src = img_src ? img_src : "";
+        img.alt = name ? name : "";
 
         image_container.appendChild(background_image);
         image_container.appendChild(img);
