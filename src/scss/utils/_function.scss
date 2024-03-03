@@ -60,6 +60,14 @@
     line-height: var(--line-height-#{$kind}-#{$size});
 }
 
+@mixin create-text-prominent($kind, $size) {
+    text-decoration: none;
+    font-weight: var(--font-weight-prominent-#{$kind}-#{$size});
+    font-size: var(--font-size-#{$kind}-#{$size});
+    letter-spacing: var(--font-tracking-#{$kind}-#{$size});
+    line-height: var(--line-height-#{$kind}-#{$size});
+}
+
 @mixin create-shadow($level, $color) {
     &::before {
         $level1-y: clamp(0, $level, 1);
